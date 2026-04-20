@@ -6,10 +6,8 @@ echo "Disk Usage: $(df -h / | awk 'NR==2{print $5}')"
 echo "Uptime: $(uptime -p)"
 
 echo "Network Usage:"
-echo "  Incoming: $(ifstat -i eth0 1 1 | awk '
-NR==3 {print $1 " KB/s"}')"
-echo "  Outgoing: $(ifstat -i eth0 1 1 | awk '
-NR==3 {print $2 " KB/s"}')" 
+echo "  Incoming: $(ifstat -i eth0 1 1 | awk 'NR==3 {print $1 " KB/s"}')"
+echo "  Outgoing: $(ifstat -i eth0 1 1 | awk 'NR==3 {print $2 " KB/s"}')" 
 
 echo "Top 5 Processes by CPU Usage:"
 ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6   
